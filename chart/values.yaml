@@ -1,0 +1,5 @@
+infisicalSecrets:
+  - name: infisical-vault-secret
+    serviceTokenSecretName: service-token
+    secretsPath: /vault
+    secretName: vault-secret
