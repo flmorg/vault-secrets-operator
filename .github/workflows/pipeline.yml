@@ -1,4 +1,6 @@
 on:
+  workflow_call:
+  workflow_dispatch:
   push:
     paths:
       - 'chart/**'
@@ -12,6 +14,8 @@ jobs:
       chartRepo: oci://ghcr.io/flmorg
       chartName: universal-chart
       version: ^1.0.0
+      valuesPath: chart/values.yaml
+      releaseName: main
     secrets: inherit
 
   deploy_external:
@@ -22,3 +26,6 @@ jobs:
       chartRepo: https://ricoberger.github.io/helm-charts
       chartName: vault-secrets-operator
       version: ^1.0.0
+      valuesPath: chart/values-external.yaml
+      releaseName: external
+    secrets: inherit
